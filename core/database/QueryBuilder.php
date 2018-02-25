@@ -68,7 +68,7 @@ class QueryBuilder
 
         $statement->execute([':id' => $id]);
 
-        $className = 'app\\models\\'. ucfirst($table);
+        $className = ucfirst($table);
 
         return $statement->fetchObject($className);
     }
