@@ -1,0 +1,11 @@
+{
+  "autoload": {
+    "classmap": [
+      "./"
+    ]
+  },
+  "require": {
+    "twbs/bootstrap": "^4.0",
+    "fxp/composer-asset-plugin": "^1.4"
+  }
+}
