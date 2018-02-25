@@ -25,7 +25,6 @@ class Task extends Model
         'email',
         'text',
         'status',
-        'file'
     ];
 
     public function save()
