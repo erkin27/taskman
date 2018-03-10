@@ -37,11 +37,4 @@ class Pagination
         $this->buttons[] = new Button($currentPage + 1, $currentPage < $pagesCount, 'Next');
 
     }
-
-    public function getModels($models)
-    {
-        $modelsPerPage = array_chunk($models, $this->itemsPerPage);
-
-        return $modelsPerPage[$this->currentPage-1];
-    }
 }

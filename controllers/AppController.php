@@ -30,9 +30,9 @@ class AppController extends Controller
         if(!empty($sort)) {
             $orderBy = $sorting->getOrderBy($sort);
         }
+        $offset = $page === 1 ? 0 : ($page -1) * $itemsPerPage;
 
-        $tasks = App::get('database')->selectAll('task', $orderBy);
-        $tasks = $p->getModels($tasks);
+        $tasks = App::get('database')->selectAll('task', $orderBy, 'limit ' . $itemsPerPage,  'offset ' . $offset);
 
         return $this->view('index', [
             'tasks' => $tasks,

@@ -23,10 +23,10 @@ class QueryBuilder
         return $statement->fetch(PDO::FETCH_COLUMN);
     }
 
-    public function selectAll($table, $orderBy = '')
+    public function selectAll($table, $orderBy = '', $limit = '', $offset = '')
     {
 
-        $sql = "select * from {$table} {$orderBy}";
+        $sql = "select * from {$table} {$orderBy} {$limit} {$offset}";
 
         $statement = $this->pdo->prepare($sql);
 
