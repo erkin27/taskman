@@ -1,4 +1,7 @@
-<?php require 'blocks/header.php';
+<?php use app\models\Task;
+use app\models\User;
+
+require 'blocks/header.php';
 ?>
 
 
@@ -12,8 +15,8 @@
         <form method="POST" action="/create" id="create_form" enctype="multipart/form-data">
             <div class="form-group">
                 <input type="hidden" name="id" value="<?=$model->id?>">
-                <img alt="User Pic" src="/<?=$model->file?>" class="img-responsive" width="<?=Task::WIDTH_IMG?>"
-                     height="<?=Task::HEIGHT_IMG?>" id="imgAvatar" style="margin-bottom: 5px;">
+                <img alt="User Pic" src="/<?=$model->file?>" class="img-responsive m-bot" width="<?=Task::WIDTH_IMG?>"
+                     height="<?=Task::HEIGHT_IMG?>" id="imgAvatar">
                 <input type="file" name="fileToUpload" id="fileToUpload">
                 <label for="name">Name</label>
                 <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name" required
@@ -38,17 +41,17 @@
             </div>
             <?php endif;?>
             <?php if(!empty($model->id)):?>
-                <button type="submit" class="btn btn-primary" style="margin-top: 10px;" id="create_btn">Update task</button>
+                <button type="submit" class="btn btn-primary m-top" id="create_btn">Update task</button>
             <?php else: ?>
-                <button type="submit" class="btn btn-success" style="margin-top: 10px;" id="create_btn">Create task</button>
+                <button type="submit" class="btn btn-success m-top" id="create_btn">Create task</button>
             <?php endif; ?>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" style="margin-top: 10px;" id="preview_btn">
+            <button type="button" class="btn btn-info m-top" data-toggle="modal" data-target="#myModal" id="preview_btn">
                 Preview
             </button>
 
-            <a href="/index" class="btn btn-default" style="margin-top: 10px;">
+            <a href="/index" class="btn btn-default m-top">
                 Back to tasks
             </a>
         </form>
@@ -67,14 +70,14 @@
                 <div class="modal-body">
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <h5 style="font-style: italic; color: #7b908b ">Name</h5><p id="item_name"></p>
+                            <h5 class="item">Name</h5><p id="item_name"></p>
                         </li>
                         <li class="list-group-item">
-                            <h5 style="font-style: italic; color: #7b908b ">Email</h5>
+                            <h5 class="item">Email</h5>
                             <p id="item_email"></p>
                         </li>
                         <li class="list-group-item">
-                            <h5 style="font-style: italic; color: #7b908b">Description</h5>
+                            <h5 class="item">Description</h5>
                             <p id="item_description"></p>
                         </li>
                     </ul>

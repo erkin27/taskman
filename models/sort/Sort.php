@@ -1,6 +1,6 @@
 <?php
 
-//namespace app\models\sort;
+namespace app\models\sort;
 
 
 class Sort

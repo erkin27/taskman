@@ -1,10 +1,10 @@
 <?php
 
-//namespace app\models;
-//
-//use app\core\App;
-//use app\core\database\QueryBuilder;
-//use app\models\base\Model;
+namespace app\models;
+
+use app\core\App;
+use app\core\database\QueryBuilder;
+use app\models\base\Model;
 
 class Task extends Model
 {

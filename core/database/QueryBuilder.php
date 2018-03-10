@@ -1,10 +1,10 @@
 <?php
 
-//namespace app\core\database;
-//
-//
-//use Exception;
-//use PDO;
+namespace app\core\database;
+
+
+use Exception;
+use PDO;
 
 class QueryBuilder
 {
@@ -32,7 +32,7 @@ class QueryBuilder
 
         $statement->execute();
 
-        $className = ucfirst($table);
+        $className = '\\app\\models\\' . ucfirst($table);
 
         return $statement->fetchAll(PDO::FETCH_CLASS, $className);
     }
@@ -68,7 +68,7 @@ class QueryBuilder
 
         $statement->execute([':id' => $id]);
 
-        $className = ucfirst($table);
+        $className =  '\\app\\models\\' . ucfirst($table);
 
         return $statement->fetchObject($className);
     }

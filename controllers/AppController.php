@@ -1,14 +1,14 @@
 <?php
 
-//namespace app\controllers;
-//
-//use app\core\App;
-//use app\core\Request;
-//use app\models\pagination\Pagination;
-//use app\models\sort\Sort;
-//use app\models\Task;
+namespace app\controllers;
 
-class AppController
+use app\core\App;
+use app\core\Request;
+use app\models\pagination\Pagination;
+use app\models\sort\Sort;
+use app\models\Task;
+
+class AppController extends Controller
 {
     public function index()
     {
@@ -34,7 +34,7 @@ class AppController
         $tasks = App::get('database')->selectAll('task', $orderBy);
         $tasks = $p->getModels($tasks);
 
-        return view('index', [
+        return $this->view('index', [
             'tasks' => $tasks,
             'sortParams' => $sorting->params,
             'p' => $p,
@@ -55,10 +55,10 @@ class AppController
 
             $model->uploadFile();
 
-            return redirect('index');
+            return $this->redirect('index');
         }
 
-        return view('create', ['model' => $model]);
+        return $this->view('create', ['model' => $model]);
     }
 
     public function edit()
@@ -69,9 +69,9 @@ class AppController
 
             $model = Task::findOne($params['id']);
 
-            return view('create', ['model' => $model]);
+            return $this->view('create', ['model' => $model]);
         }
 
-        return redirect('index');
+        return $this->redirect('index');
     }
 }

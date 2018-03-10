@@ -1,9 +1,6 @@
 <?php
 
-//namespace app\core;
-//
-//use Exception;
-
+namespace app\core;
 
 class Router
 {
@@ -48,8 +45,8 @@ class Router
 
     public function callAction($controller, $action)
     {
-//        $controllerName = 'app\\controllers\\'.$controller;
-        $controller = new $controller();
+        $controllerName = 'app\\controllers\\'.$controller;
+        $controller = new $controllerName;
 
         if (!method_exists($controller, $action)){
             throw  new \Exception(

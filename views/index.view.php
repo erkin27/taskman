@@ -1,4 +1,6 @@
 <?php
+use app\models\User;
+
 require 'blocks/header.php';
 ?>
 
